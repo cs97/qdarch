@@ -1,4 +1,5 @@
 
+#disk
 SYSDISK='sda'
 BOOT='sda1'
 ROOT='sda2'
