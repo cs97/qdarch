@@ -45,6 +45,7 @@ echo "HOOKS=(base udev autodetect modconf block keyboard keymap encrypt lvm2 fil
 cp -r /root/qdarch /mnt/root/installer
 
 arch-chroot /mnt /bin/bash -c '/root/installer/doinchroot.sh'
+arch-chroot /mnt /bin/bash -c '/root/installer/stuff.sh'
 
 clear
 
