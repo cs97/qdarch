@@ -5,6 +5,7 @@ USERNAME='you'
 echo KEYMAP=de-latin1 > /etc/vconsole.conf
 echo LANG=de_DE.UTF-8 > /etc/locale.conf
 
+#locale
 #nano /etc/locale.gen
 echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen
 echo "de_DE ISO-8859-1" >> /etc/locale.gen
@@ -34,8 +35,8 @@ ntpd -gq
 pacman -S xorg-server xorg-xinit xorg-apps --noconfirm
 
 #INTEL / AMD
-pacman -S xf86-video-intel --noconfirm
-#pacman -S xf86-video-amdgpu --noconfirm
+#pacman -S xf86-video-intel --noconfirm
+pacman -S xf86-video-amdgpu --noconfirm
 
 #keyboard.conf
 printf 'Section "InputClass"'>/etc/X11/xorg.conf.d/20-keyboard.conf
