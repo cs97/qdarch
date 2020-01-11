@@ -21,6 +21,8 @@ i3wm
 
 ### what you need to do:
 
+copy the qdarch to /root
+
 root@archiso ~ # cd qdarch
 
 root@archiso ~ # ./quich.sh
