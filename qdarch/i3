@@ -9,7 +9,7 @@ floating_modifier $mod
 # AUTORUN #
 ###########
 
-exec feh --bg-center /home/l3f7s1d3/tpbh.png
+#exec feh --bg-center ~/pic.png
 
 font pango:awesome 7
 #font pango:DejaVu Sans Mono 7
