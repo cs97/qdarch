@@ -14,3 +14,9 @@ quick &amp; dirty arch
 * #INTEL / AMD
 
 * #keyboard.conf
+
+### what you need to do:
+
+root@archiso ~ # cd qdarch
+
+root@archiso ~ # ./quich.sh
