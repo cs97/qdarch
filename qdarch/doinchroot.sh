@@ -56,9 +56,6 @@ pacman -S i3 feh ttf-dejavu scrot thunar file-roller i3lock gvfs alsa alsa-utils
 #wifi
 pacman -S wpa_supplicant netctl dialog --noconfirm
 
-#other stuff
-pacman -S cdrtools gedit screenfetch firefox openssh transmission-gtk --noconfirm
-
 #usermake
 useradd -m -g users -s /bin/bash $USERNAME
 gpasswd -a $USERNAME wheel
@@ -71,13 +68,6 @@ chmod 770 .config
 echo "$USERNAME passwort:"
 passwd $USERNAME
 #echo "setxkbmap de" >> /home/$USERNAME/.bashrc
-
-#Virtualbox
-pacman -S virtualbox virtualbox-host-modules-arch --noconfirm
-gpasswd -a $USERNAME vboxusers
-
-#fastboot android
-#pacman -S fastboot --noconfirm
 
 #wallpaper
 #cp /root/installer/tpbh.png /home/$USERNAME/tpbh.png
