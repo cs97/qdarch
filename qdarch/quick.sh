@@ -1,8 +1,8 @@
 
 #disk
-SYSDISK='sda'
-BOOT='sda1'
-ROOT='sda2'
+SYSDISK='nvme0n1'
+BOOT='nvme0n1p1'
+ROOT='nvme0n1p2'
 
 
 #loadkeys de
