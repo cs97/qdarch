@@ -1,5 +1,9 @@
 ### quick &amp; dirty arch
-Arch, AES, i3wm
+Archlinux
+
+AES Disk encryption
+
+i3wm
 
 ### what you need to change:
 
