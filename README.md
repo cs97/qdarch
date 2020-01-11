@@ -1,5 +1,5 @@
-# qdarch
-quick &amp; dirty arch
+### quick &amp; dirty arch
+Arch, AES, i3wm
 
 ### what you need to change:
 
