@@ -63,6 +63,7 @@ cp ~/.xinitrc /home/$USERNAME/.xinitrc
 mkdir /home/$USERNAME/.config
 mkdir /home/$USERNAME/.config/i3
 cp /root/installer/i3 /home/$USERNAME/.config/i3/config
+cp /root/installer/conky.conf /home/$USERNAME/conky.conf
 chown $USERNAME:users .config
 chmod 770 .config
 echo "$USERNAME passwort:"
