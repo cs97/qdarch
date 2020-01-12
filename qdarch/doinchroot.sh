@@ -2,18 +2,18 @@
 #username
 USERNAME='you'
 
-echo KEYMAP=de-latin1 > /etc/vconsole.conf
-echo LANG=de_DE.UTF-8 > /etc/locale.conf
-
 #locale
-#nano /etc/locale.gen
-echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen
-echo "de_DE ISO-8859-1" >> /etc/locale.gen
-echo "de_DE@euro ISO-8859-15" >> /etc/locale.gen
+sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
+#echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen
+#echo "de_DE ISO-8859-1" >> /etc/locale.gen
+#echo "de_DE@euro ISO-8859-15" >> /etc/locale.gen
 locale-gen
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+export LANG=en_US.UTF-8
 
 #localtime
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+hwclock --systohc --utc
 
 mkinitcpio -p linux
 systemctl enable dhcpcd
