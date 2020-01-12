@@ -1,3 +1,4 @@
+#!/bin/bash
 
 #disk
 SYSDISK='nvme0n1'
