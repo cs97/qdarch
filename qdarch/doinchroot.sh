@@ -39,13 +39,14 @@ pacman -S xorg-server xorg-xinit xorg-apps --noconfirm
 pacman -S xf86-video-amdgpu --noconfirm
 
 #keyboard.conf
-printf 'Section "InputClass"'>/etc/X11/xorg.conf.d/20-keyboard.conf
-printf '\tIdentifier "keyboard"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
-printf '\tMatchIsKeyboard "yes"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
-printf '\tOption "XkbLayout" "de"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
-printf '\tOption "XkbModel" "pc105"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
-printf '\tOption "XkbVariant" "de_nodeadkeys"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
-printf 'EndSection'>>/etc/X11/xorg.conf.d/20-keyboard.conf
+localectl set-x11-keymap us pc104
+#printf 'Section "InputClass"'>/etc/X11/xorg.conf.d/20-keyboard.conf
+#printf '\tIdentifier "keyboard"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
+#printf '\tMatchIsKeyboard "yes"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
+#printf '\tOption "XkbLayout" "de"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
+#printf '\tOption "XkbModel" "pc105"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
+#printf '\tOption "XkbVariant" "de_nodeadkeys"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
+#printf 'EndSection'>>/etc/X11/xorg.conf.d/20-keyboard.conf
 
 pacman -S xorg-twm xorg-xclock xterm --noconfirm
 echo "exec i3" >> ~/.xinitrc
