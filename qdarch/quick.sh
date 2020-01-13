@@ -41,15 +41,7 @@ sed s/sysdisk/sda2/g syslinux.cfg > /mnt/boot/syslinux/syslinux.cfg
 cp -r /root/qdarch /mnt/root/installer
 
 arch-chroot /mnt /bin/bash -c '/root/installer/doinchroot.sh'
-arch-chroot /mnt /bin/bash -c '/root/installer/stuff.sh'
-
-clear
 
 echo "################"
 echo "REBOOT NOW!"
 echo "################"
-
-
-
-
-
