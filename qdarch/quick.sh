@@ -36,7 +36,8 @@ mount /dev/mapper/vgarch-lvhome /mnt/home
 
 #nano /etc/pacman.d/mirrorlist
 
-pacstrap /mnt base base-devel linux linux-hardened linux-firmware nano dhcpcd syslinux
+#pacstrap /mnt base base-devel linux linux-hardened linux-firmware nano dhcpcd syslinux
+pacstrap /mnt base base-devel linux linux-firmware nano dhcpcd syslinux
 
 genfstab -U -p /mnt > /mnt/etc/fstab
 syslinux-install_update -i -a -m -c /mnt
