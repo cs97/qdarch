@@ -2,21 +2,6 @@
 #username
 USERNAME='you'
 
-'''
-#locale
-#sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
-echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen
-echo "de_DE ISO-8859-1" >> /etc/locale.gen
-echo "de_DE@euro ISO-8859-15" >> /etc/locale.gen
-locale-gen
-#echo LANG=en_US.UTF-8 > /etc/locale.conf
-#echo LANG=de_DE.UTF-8 > /etc/locale.conf
-#export LANG=en_US.UTF-8
-
-#localtime
-ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
-hwclock --systohc --utc
-'''
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 echo "en_US ISO-8859-1" >> /etc/locale.gen
 locale-gen
