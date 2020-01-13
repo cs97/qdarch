@@ -1,12 +1,5 @@
 #!/bin/bash
 
-#disk
-#SYSDISK='nvme0n1'
-#BOOT='nvme0n1p1'
-#ROOT='nvme0n1p2'
-
-
-#loadkeys de
 wifi-menu
 
 #cfdisk /dev/$SYSDISK
@@ -44,11 +37,6 @@ syslinux-install_update -i -a -m -c /mnt
 
 #sed s/sysdisk/$ROOT/g syslinux.cfg > /mnt/boot/syslinux/syslinux.cfg
 sed s/sysdisk/sda2/g syslinux.cfg > /mnt/boot/syslinux/syslinux.cfg
-
-#echo "MODULES=()" > /mnt/etc/mkinitcpio.conf
-#echo "BINARIES=()" >> /mnt/etc/mkinitcpio.conf
-#echo "FILES=()" >> /mnt/etc/mkinitcpio.conf
-#echo "HOOKS=(base udev autodetect modconf block keyboard keymap encrypt lvm2 filesystems fsck)" >> /mnt/etc/mkinitcpio.conf
 
 cp -r /root/qdarch /mnt/root/installer
 
