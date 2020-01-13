@@ -3,13 +3,14 @@
 USERNAME='you'
 
 #locale
-sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
-#echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen
-#echo "de_DE ISO-8859-1" >> /etc/locale.gen
-#echo "de_DE@euro ISO-8859-15" >> /etc/locale.gen
+#sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
+echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen
+echo "de_DE ISO-8859-1" >> /etc/locale.gen
+echo "de_DE@euro ISO-8859-15" >> /etc/locale.gen
 locale-gen
-echo LANG=en_US.UTF-8 > /etc/locale.conf
-export LANG=en_US.UTF-8
+#echo LANG=en_US.UTF-8 > /etc/locale.conf
+#echo LANG=de_DE.UTF-8 > /etc/locale.conf
+#export LANG=en_US.UTF-8
 
 #localtime
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
@@ -39,14 +40,14 @@ pacman -S xorg-server xorg-xinit xorg-apps --noconfirm
 pacman -S xf86-video-amdgpu --noconfirm
 
 #keyboard.conf
-localectl set-x11-keymap us pc104
-#printf 'Section "InputClass"'>/etc/X11/xorg.conf.d/20-keyboard.conf
-#printf '\tIdentifier "keyboard"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
-#printf '\tMatchIsKeyboard "yes"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
-#printf '\tOption "XkbLayout" "de"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
-#printf '\tOption "XkbModel" "pc105"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
-#printf '\tOption "XkbVariant" "de_nodeadkeys"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
-#printf 'EndSection'>>/etc/X11/xorg.conf.d/20-keyboard.conf
+#localectl set-x11-keymap us pc104
+printf 'Section "InputClass"'>/etc/X11/xorg.conf.d/20-keyboard.conf
+printf '\tIdentifier "keyboard"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
+printf '\tMatchIsKeyboard "yes"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
+printf '\tOption "XkbLayout" "de"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
+printf '\tOption "XkbModel" "pc105"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
+printf '\tOption "XkbVariant" "de_nodeadkeys"'>>/etc/X11/xorg.conf.d/20-keyboard.conf
+printf 'EndSection'>>/etc/X11/xorg.conf.d/20-keyboard.conf
 
 pacman -S xorg-twm xorg-xclock xterm --noconfirm
 echo "exec i3" >> ~/.xinitrc
