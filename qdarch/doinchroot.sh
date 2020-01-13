@@ -2,6 +2,7 @@
 #username
 USERNAME='you'
 
+'''
 #locale
 #sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen
@@ -15,6 +16,18 @@ locale-gen
 #localtime
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
+'''
+echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+echo "en_US ISO-8859-1" >> /etc/locale.gen
+locale-gen
+
+ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+hwclock --systohc --utc
+
+echo "MODULES=()" > /etc/mkinitcpio.conf
+echo "BINARIES=()" >> /etc/mkinitcpio.conf
+echo "FILES=()" >> /etc/mkinitcpio.conf
+echo "HOOKS=(base udev autodetect modconf block keyboard keymap encrypt lvm2 filesystems fsck)" >> /etc/mkinitcpio.conf
 
 mkinitcpio -p linux
 systemctl enable dhcpcd
