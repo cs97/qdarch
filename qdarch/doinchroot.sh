@@ -53,7 +53,7 @@ pacman -S xorg-twm xorg-xclock xterm --noconfirm
 echo "exec i3" >> ~/.xinitrc
 
 #Desktop packete
-pacman -S i3 feh ttf-dejavu scrot thunar file-roller i3lock gvfs alsa alsa-utils pulseaudio sudo conky--noconfirm
+pacman -S i3 feh ttf-dejavu scrot thunar file-roller i3lock gvfs alsa alsa-utils pulseaudio sudo conky --noconfirm
 
 #wifi
 pacman -S wpa_supplicant netctl dialog --noconfirm
