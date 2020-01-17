@@ -74,7 +74,7 @@ passwd $USERNAME
 #cp /root/installer/tpbh.png /home/$USERNAME/tpbh.png
 
 #other stuff
-pacman -S cdrtools gedit screenfetch firefox openssh transmission-gtk --noconfirm
+pacman -S cdrtools gedit screenfetch firefox openssh transmission-gtk htop cpupower--noconfirm
 
 #Virtualbox
 pacman -S virtualbox virtualbox-host-modules-arch --noconfirm
