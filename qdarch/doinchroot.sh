@@ -1,3 +1,4 @@
+#! /bin/bash
 
 #username
 USERNAME='you'
@@ -5,14 +6,14 @@ USERNAME='you'
 set_locale='0'  # 0=em_US : 1=de_DE
 
 case $1 in
-  "1") makefs;;
+  "1")
     echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen
     echo "de_DE ISO-8859-1" >> /etc/locale.gen
     echo "de_DE@euro ISO-8859-15" >> /etc/locale.gen
-  "0")
+  *)
     echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
     echo "en_US ISO-8859-1" >> /etc/locale.gen;;
-
+esac
 locale-gen
 
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
