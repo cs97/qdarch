@@ -15,7 +15,7 @@ case $set_locale in
   "1")
     echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen
     echo "de_DE ISO-8859-1" >> /etc/locale.gen
-    echo "de_DE@euro ISO-8859-15" >> /etc/locale.gen
+    echo "de_DE@euro ISO-8859-15" >> /etc/locale.gen;;
   *)
     echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
     echo "en_US ISO-8859-1" >> /etc/locale.gen;;
