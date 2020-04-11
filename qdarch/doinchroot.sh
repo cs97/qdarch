@@ -2,10 +2,14 @@
 
 #username
 USERNAME='you'
-
+#locale
 set_locale='0'  # 0=em_US : 1=de_DE
+#wm
+set-wm='0'
 
-case $1 in
+
+
+case $set_locale in
   "1")
     echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen
     echo "de_DE ISO-8859-1" >> /etc/locale.gen
@@ -58,10 +62,10 @@ printf '\tOption "XkbVariant" "de_nodeadkeys"'>>/etc/X11/xorg.conf.d/20-keyboard
 printf 'EndSection'>>/etc/X11/xorg.conf.d/20-keyboard.conf
 
 pacman -S xorg-twm xorg-xclock xterm --noconfirm
-echo "exec i3" >> ~/.xinitrc
+
 
 #Desktop packete
-pacman -S i3 feh ttf-dejavu scrot thunar file-roller i3lock gvfs alsa alsa-utils pulseaudio sudo conky --noconfirm
+pacman -S alsa alsa-utils pulseaudio sudo --noconfirm
 
 #wifi
 pacman -S wpa_supplicant netctl dialog --noconfirm
@@ -69,19 +73,9 @@ pacman -S wpa_supplicant netctl dialog --noconfirm
 #usermake
 useradd -m -g users -s /bin/bash $USERNAME
 gpasswd -a $USERNAME wheel
-cp ~/.xinitrc /home/$USERNAME/.xinitrc
-mkdir /home/$USERNAME/.config
-mkdir /home/$USERNAME/.config/i3
-cp /root/installer/i3 /home/$USERNAME/.config/i3/config
-cp /root/installer/conky.conf /home/$USERNAME/conky.conf
-chown $USERNAME:users .config
-chmod 770 .config
 echo "$USERNAME passwort:"
 passwd $USERNAME
 #echo "setxkbmap de" >> /home/$USERNAME/.bashrc
-
-#wallpaper
-#cp /root/installer/tpbh.png /home/$USERNAME/tpbh.png
 
 #other stuff
 pacman -S cdrtools gedit screenfetch firefox openssh transmission-gtk htop cpupower--noconfirm
@@ -92,3 +86,25 @@ gpasswd -a $USERNAME vboxusers
 
 #fastboot android
 #pacman -S fastboot --noconfirm
+
+
+case $set_locale in
+  *) echo 'nope';;
+  
+  "1") #i3-wm
+    pacman -S i3 feh ttf-dejavu scrot thunar file-roller i3lock gvfs conky --noconfirm
+    echo "exec i3" >> ~/.xinitrc
+    cp ~/.xinitrc /home/$USERNAME/.xinitrc
+    mkdir /home/$USERNAME/.config
+    mkdir /home/$USERNAME/.config/i3
+    cp /root/installer/i3 /home/$USERNAME/.config/i3/config
+    cp /root/installer/conky.conf /home/$USERNAME/conky.conf
+    chown $USERNAME:users /home/$USERNAME/.config
+    chmod 770 /home/$USERNAME/.config;;
+    
+  "2") #plasma
+    #stuff
+  ;;
+
+
+esac
