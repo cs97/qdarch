@@ -3,9 +3,9 @@
 #username
 USERNAME='you'
 #locale
-set_locale='0'  # 0=em_US : 1=de_DE
+set_locale='0'  # 0=em_US ; 1=de_DE
 #wm
-set-wm='0'
+set-wm='0'      # 0=nope ; 1=i3-wm ; 2=plasma
 
 
 
