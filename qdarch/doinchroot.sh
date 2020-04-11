@@ -81,7 +81,7 @@ passwd $USERNAME
 #echo "setxkbmap de" >> /home/$USERNAME/.bashrc
 
 #other stuff
-pacman -S cdrtools gedit screenfetch firefox openssh transmission-gtk htop cpupower--noconfirm
+pacman -S cdrtools gedit screenfetch firefox openssh transmission-gtk htop cpupower --noconfirm
 
 #Virtualbox
 pacman -S virtualbox virtualbox-host-modules-arch --noconfirm
