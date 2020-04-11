@@ -3,9 +3,11 @@
 #username
 USERNAME='you'
 #locale
-set_locale='0'  # 0=em_US ; 1=de_DE
+set_locale='0'       # 0=em_US ; 1=de_DE
 #wm
-set-wm='0'      # 0=nope ; 1=i3-wm ; 2=plasma
+set_wm='0'          # 0=nope ; 1=i3-wm ; 2=plasma
+#gpu
+set_xf86_video='0'  # 0=intel ; 1=amd
 
 
 
@@ -47,9 +49,10 @@ systemctl enable org.cups.cupsd.service
 ntpd -gq
 pacman -S xorg-server xorg-xinit xorg-apps --noconfirm
 
-#INTEL / AMD
-#pacman -S xf86-video-intel --noconfirm
-pacman -S xf86-video-amdgpu --noconfirm
+case $set_xf86_video in
+  "0") pacman -S xf86-video-intel --noconfirm;;
+  "1") pacman -S xf86-video-amdgpu --noconfirm;;
+esac
 
 #keyboard.conf
 #localectl set-x11-keymap us pc104
@@ -88,7 +91,7 @@ gpasswd -a $USERNAME vboxusers
 #pacman -S fastboot --noconfirm
 
 
-case $set_locale in
+case $set_wm in
   *) echo 'nope';;
   
   "1") #i3-wm
