@@ -106,7 +106,10 @@ case $desktop in
     chmod 770 /home/$username/.config;;
     
   "2") #plasma
-    #stuff
+    pacman -S xorg --noconfirm
+    pacman -S plasma-meta kde-applications --noconfirm
+    systemctl enable sddm
+    systemctl enable NetworkManager
   ;;
 
 
