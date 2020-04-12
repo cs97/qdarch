@@ -7,7 +7,7 @@ read -p "Enter your password:" password
 
 read -p "Which desktop-environment do you want? ( 0=nothing ; 1=i3-wm ; 2=plasma )" desktop 
 
-read -p "Which grafikcard do you have? ( nvidia=0 ; amd=1 )" video
+read -p "Which grafikcard do you have? ( nvidia=0 ; amd=1 )" graka
 
 read -p "Which language do you speak? ( 0=en ; 1=de )" lang
 
