@@ -1,17 +1,17 @@
 #! /bin/bash
 
 #username
-USERNAME='you'
+#USERNAME='you'
 #locale
-set_locale='0'       # 0=em_US ; 1=de_DE
+#set_locale='0'       # 0=em_US ; 1=de_DE
 #wm
-set_wm='0'          # 0=nope ; 1=i3-wm ; 2=plasma
+#set_wm='0'          # 0=nope ; 1=i3-wm ; 2=plasma
 #gpu
-set_xf86_video='0'  # 0=intel ; 1=amd
+#set_xf86_video='0'  # 0=intel ; 1=amd
 
 
 
-case $set_locale in
+case $lang in
   "1")
     echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen
     echo "de_DE ISO-8859-1" >> /etc/locale.gen
@@ -49,7 +49,7 @@ systemctl enable org.cups.cupsd.service
 ntpd -gq
 pacman -S xorg-server xorg-xinit xorg-apps --noconfirm
 
-case $set_xf86_video in
+case $video in
   "0") pacman -S xf86-video-intel --noconfirm;;
   "1") pacman -S xf86-video-amdgpu --noconfirm;;
 esac
@@ -74,10 +74,10 @@ pacman -S alsa alsa-utils pulseaudio sudo --noconfirm
 pacman -S wpa_supplicant netctl dialog --noconfirm
 
 #usermake
-useradd -m -g users -s /bin/bash $USERNAME
-gpasswd -a $USERNAME wheel
-echo "$USERNAME passwort:"
-passwd $USERNAME
+useradd -m -g users -s /bin/bash $username
+gpasswd -a $username wheel
+echo "$username passwort:"
+passwd $username
 #echo "setxkbmap de" >> /home/$USERNAME/.bashrc
 
 #other stuff
@@ -85,25 +85,25 @@ pacman -S cdrtools gedit screenfetch firefox openssh transmission-gtk htop cpupo
 
 #Virtualbox
 pacman -S virtualbox virtualbox-host-modules-arch --noconfirm
-gpasswd -a $USERNAME vboxusers
+gpasswd -a $username vboxusers
 
 #fastboot android
 #pacman -S fastboot --noconfirm
 
 
-case $set_wm in
+case $desktop in
   *) echo 'nope';;
   
   "1") #i3-wm
     pacman -S i3 feh ttf-dejavu scrot thunar file-roller i3lock gvfs conky --noconfirm
     echo "exec i3" >> ~/.xinitrc
-    cp ~/.xinitrc /home/$USERNAME/.xinitrc
-    mkdir /home/$USERNAME/.config
-    mkdir /home/$USERNAME/.config/i3
-    cp /root/installer/i3 /home/$USERNAME/.config/i3/config
-    cp /root/installer/conky.conf /home/$USERNAME/conky.conf
-    chown $USERNAME:users /home/$USERNAME/.config
-    chmod 770 /home/$USERNAME/.config;;
+    cp ~/.xinitrc /home/$username/.xinitrc
+    mkdir /home/$username/.config
+    mkdir /home/$username/.config/i3
+    cp /root/installer/i3 /home/$username/.config/i3/config
+    cp /root/installer/conky.conf /home/$usernameE/conky.conf
+    chown $username:users /home/$username/.config
+    chmod 770 /home/$username/.config;;
     
   "2") #plasma
     #stuff
