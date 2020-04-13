@@ -70,6 +70,10 @@ pacman -S xorg-twm xorg-xclock xterm --noconfirm
 #Desktop packete
 pacman -S alsa alsa-utils pulseaudio sudo --noconfirm
 
+#um mkv videos abzuspielen
+pacman -S gst-libav
+
+
 #wifi
 pacman -S wpa_supplicant netctl dialog --noconfirm
 
