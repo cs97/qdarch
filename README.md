@@ -23,4 +23,6 @@ i3wm
 
 copy the run.sh to /root
 
+root@archiso ~ # chmod +x run.sh
+
 root@archiso ~ # ./run.sh
