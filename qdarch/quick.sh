@@ -1,5 +1,6 @@
 #! /bin/bash
 
+chmod +x doinchroot.sh
 
 read -p "Enter your username:" username
 
