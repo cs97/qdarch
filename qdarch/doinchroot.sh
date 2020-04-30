@@ -49,6 +49,11 @@ systemctl enable org.cups.cupsd.service
 ntpd -gq
 pacman -S xorg-server xorg-xinit xorg-apps --noconfirm
 
+# Schnellste Mirrorliste haben
+pacman -Sy
+pacman -S reflector
+reflector --latest 5 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+
 case $video in
   "0") pacman -S xf86-video-intel --noconfirm;;
   "1") pacman -S xf86-video-amdgpu --noconfirm;;
@@ -114,6 +119,9 @@ case $desktop in
     pacman -S plasma-meta kde-applications --noconfirm
     systemctl enable sddm
     systemctl enable NetworkManager
+    cp ~/root/installer/.config /home/$username/
+    chown $username:users /home/$username/.config
+    chmod 770 /home/$username/.config
   ;;
 
 
