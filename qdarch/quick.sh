@@ -1,7 +1,21 @@
-#!/bin/bash
+#! /bin/bash
+
+
+read -p "Enter your username:" username
+ 
+read -p "Enter your password:" password
+
+read -p "Which desktop-environment do you want? ( 0=nothing ; 1=i3-wm ; 2=plasma )" desktop 
+
+read -p "Which grafikcard do you have? ( nvidia=0 ; amd=1 )" graka
+
+read -p "Which language do you speak? ( 0=en ; 1=de )" lang
 
 wifi-menu
 
+
+
+echo "Bitte Festplatte in zwei Partitionen splitten"
 #cfdisk /dev/$SYSDISK
 cfdisk /dev/sda
 
@@ -38,10 +52,16 @@ syslinux-install_update -i -a -m -c /mnt
 #sed s/sysdisk/$ROOT/g syslinux.cfg > /mnt/boot/syslinux/syslinux.cfg
 sed s/sysdisk/sda2/g syslinux.cfg > /mnt/boot/syslinux/syslinux.cfg
 
+export username
+export password
+export desktop
+export lang
+export graka
+
 cp -r /root/qdarch /mnt/root/installer
 
 arch-chroot /mnt /bin/bash -c '/root/installer/doinchroot.sh'
 
-echo "################"
+echo "############################################################"
 echo "REBOOT NOW!"
-echo "################"
+echo "#############################################################"
